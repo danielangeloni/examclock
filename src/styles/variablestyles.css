@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #0280FA;
+    --secondary-color: #0280FA;
+    --left-panel-color: white;
+    --exam-event-bgcolor: #E5E5E5;
+    --exam-event-textcolor: black;
+    --aclock-bordercolor: #333333;
+    --dclock-textcolor: black;
+}

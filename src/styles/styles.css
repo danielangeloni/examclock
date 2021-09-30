@@ -1,0 +1,294 @@
+:root {
+    --clock-height: 32vh;
+}
+#container {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    padding: 0;
+}
+
+#leftPanel {
+    width: 70%;
+    height: 100%;
+    background: var(--left-panel-color);
+    border-right: 15px solid var(--secondary-color);
+    float: left;
+}
+
+#rightPanel {
+    margin-left: 70%;
+    height: 100%;
+    background-color: var(--left-panel-color);
+    border-right: 5px solid var(--secondary-color);
+    border-left: 10px solid var(--primary-color);
+}
+
+#examEventsContainer {
+    padding: 20px 20px 20px 20px;
+    overflow: auto;
+    height: 100vh;
+}
+
+#examLogoContainer {
+    text-align: center;
+}
+
+#examAnalogueClockContainer {
+    background-color: var(--left-panel-color);
+    position: relative;
+    height: var(--clock-height);
+}
+
+.clock canvas {
+    height: var(--clock-height);
+    width: var(--clock-height);
+}
+
+#examDigitalClockContainer {
+    padding-top: 2vw;
+}
+
+#examDateClockContainer {}
+
+.timeDisplay {
+    color: var(--dclock-textcolor);
+    text-align: center;
+    font-size: 4.9vw;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 3.7vw;
+    font-weight: normal;
+    line-height: 1.1;
+    text-transform: initial;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background-color: var(--aclock-bordercolor);
+    border-radius: 20%;
+    width: 300px;
+    height: 300px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 30%;
+    height: auto;
+    margin: 15px 0px 40px 0px;
+}
+
+.exam-event {
+    width: 100%;
+    background-color: var(--exam-event-bgcolor);
+    color: var(--exam-event-textcolor);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.exam-event .heading {
+    font-size: 4.3vh;
+    font-weight: bold;
+}
+
+.exam-event .body-right {
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 1vh;
+    top: calc(50% - 5.5vh);
+    font-size: 2.1vh;
+    font-weight: bold;
+}
+
+.exam-event .body-left {
+    width: calc(100% - (1vh + 260px));
+    float: left;
+}
+
+
+@media (max-width: 1440px) {
+    .exam-event .body-right {
+        right: 5vh;
+    }
+
+    .exam-event .body-left {
+        width: calc(100% - (5vh + 190px));
+    }
+}
+
+.exam-event:before,
+.exam-event:after,
+.exam-event .body-right:before,
+.exam-event .body-right:after {
+    content: " ";
+    display: table;
+}
+
+.exam-event:after,
+.exam-event .body-right:after {
+    clear: both;
+}
+
+
+.exam-event .start,
+.exam-event .end {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 3.1vh;
+}
+
+.exam-event .remaining-time {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    /* font-size: 50px; */
+    font-size: 5.1vh;
+}
+
+#settingsModal {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    background-color: #E5E5E5;
+    padding: 5px 10px 5px 10px;
+    user-select: none;
+
+}
+
+#settingsModal:hover {
+    cursor: pointer;
+    background-color: #d9d9d9;
+}
+
+#settingsModal:active {
+    background-color: #cccccc;
+}
+
+.modal {
+    z-index: 3;
+    display: none;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4)
+}
+
+.modal-content {
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    padding: 10px;
+    outline: 0;
+    width: 100%;
+    height: calc(100vh - 20px);
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border: 2px solid #E5E5E5;
+    padding: 0px 5px 5px 5px;
+    user-select: none;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.modal-close:hover {
+    cursor: pointer;
+    background-color: #d9d9d9;
+}
+
+.modal-close:active {
+    background-color: #cccccc;
+}
+
+table,
+th,
+td {
+    border: none;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: center;
+    font-weight: bold;
+}
+
+td {
+    padding: 1px 5px 1px 5px;
+}
+
+table {
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+}
+
+.add-button {
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+    font-size: 14px;
+}
+
+.helper {
+    position: absolute;
+    top: 10%;
+    background-color: var(--exam-event-bgcolor);
+    width: 300px;
+    margin-left: 10px;
+    padding: 10px;
+    max-height: 65vh;
+    overflow: auto;
+}
+
+.controls {
+    position: absolute;
+    bottom: 7vh;
+    background-color: var(--exam-event-bgcolor);
+    width: 300px;
+    margin-left: 10px;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.examLists {
+    width:70%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 70%;
+}

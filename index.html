@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RBC Exam Clock</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/variablestyles.css">
+    <link rel="stylesheet" href="src/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="src/styles/fa.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="leftPanel">
+            <div id="examEventsContainer"></div>
+        </div>
+        <div id="rightPanel">
+            <div id="examLogoContainer">
+                <img src="logo.jpg">
+            </div>
+            <div id="examAnalogueClockContainer">
+                <div class="clock">
+                    <canvas id="canvas" width="300" height="300"></canvas>
+                </div>
+            </div>
+            <div id="examDigitalClockContainer">
+                <div id="DigitalClock" class="timeDisplay"></div>
+            </div>
+            <div id="examDateClockContainer">
+                <div id="DateClock" class="timeDisplay date"></div>
+            </div>
+            <div id="settingsModal" onclick="document.getElementById('id01').style.display='block'"><i class="fas fa-gear"></i></div>
+        </div>
+    </div>
+    <div id="id01" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" class="modal-close">&times;</span>
+            <div class="examLists" id="examLists">
+                <table id="examTable"></table>
+            </div>
+            <div class="helper">
+                <h3>How to Use</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Click the <i class="fas fa-plus" style="background-color: #007BFF;color:white;padding:4px;border-radius: 2px; font-size:12px"></i> button to add an exam</li>
+                    <li>Fill in the fields manually or alternatively click the clock button for a menu dialog.</li>
+                    <li>If the exam does not have reading time you can leave it blank.</li>
+                    <li>If you entered a reading time for the exam but wish to clear it, just select the individual time (hours, minutes, AM/PM) and click the backspace or delete key OR make it the same as the start time.</li>
+                    <li>Click <i class="fas fa-save" style="background-color: #007BFF;color:white;padding:4px;border-radius: 2px; font-size:12px"></i> to save changes for that row. Once saved, it will turn green and a prompt will appear. You will need to do this for each row if you edit/add more than one in one go.</li>
+                    <li>Click <i class="fas fa-trash-alt" style="background-color: #C82333;color:white;padding:4px;border-radius: 2px; font-size:12px"></i> to remove an exam from the list.</li>
+                    <li>If you experience any issues with this site, or want to clear all exams click the red button below.</li>
+                </ul>
+            </div>
+            <div class="controls">
+                <h3>Danger Zone</h3>
+                <button type="button" class="btn btn-danger" onclick="resetLocalStorage()">Clear All and Reset Memory</button>
+            </div>
+            <div class="footer">
+                Made by Daniel Angeloni 
+                <br>
+                <a href="https://github.com/danielangeloni/examclock" style="font-size: 12px;">https://github.com/danielangeloni/examclock</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="src/scripts/jquery.min.js"></script>
+<script src="src/scripts/analogue-clock.js"></script>
+<script src="src/scripts/digital-clock.js"></script>
+<script src="src/scripts/exam-events.js"></script>
+<script src="src/scripts/local-storage.js"></script>
+<script src="src/scripts/settings.js"></script>
+<script>
+    // Start the Digital Time
+    startTime();
+    // Show the Date
+    startDate();
+    // Create the storage object to control the localstorage
+    storage = new Storage();
+    // Use the storage object
+    storage.use();
+</script>
+
+</html>
