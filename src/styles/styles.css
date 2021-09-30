@@ -54,7 +54,7 @@
 .timeDisplay {
     color: var(--dclock-textcolor);
     text-align: center;
-    font-size: 4.9vw;
+    font-size: 4.8vw;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -132,6 +132,17 @@ img {
 
     .exam-event .body-left {
         width: calc(100% - (5vh + 190px));
+    }
+
+    .timeDisplay {
+        font-size: 4.5vw;
+    }
+
+    .date {
+        font-size: 3.6vw;
+        font-weight: normal;
+        line-height: 1.1;
+        text-transform: initial;
     }
 }
 
