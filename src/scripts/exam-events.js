@@ -5,19 +5,7 @@ class Exam {
         this.endTimeIn = endTimeIn;
         this.readingTimestartTimeIn = readingTimestartTimeIn;
         this.UUID = "exam" + Math.floor(Math.random() * 42069);
-
-        var today = new Date();
-        const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-        var month = months[today.getMonth()];
-        var date = today.getDate();
-        var year = today.getFullYear();
-
-        this.countDownStartTime = new Date(month + " " + date + ", " + year + " " + startTimeIn).getTime();
-        this.countDownEndTime = new Date(month + " " + date + ", " + year + " " + endTimeIn).getTime();
-        this.countDownreadingTime = new Date(month + " " + date + ", " + year + " " + readingTimestartTimeIn).getTime();
-
     }
-
 }
 
 function create(exam) {
@@ -26,25 +14,21 @@ function create(exam) {
     var startTimeIn = exam.startTimeIn;
     var endTimeIn = exam.endTimeIn;
     var myUUID = exam.UUID;
-    var countDownStartTime = exam.countDownStartTime;
-    var countDownEndTime = exam.countDownEndTime;
     var readingTimestartTimeIn = exam.readingTimestartTimeIn;
-    var countDownreadingTime = exam.countDownreadingTime;
 
-    // Update the dates (so that if they are edited after construction, they will be reflective of new times)
+    // Create the dates from the times in the object
     var today = new Date();
     const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     var month = months[today.getMonth()];
     var date = today.getDate();
     var year = today.getFullYear();
 
-    countDownStartTime = new Date(month + " " + date + ", " + year + " " + startTimeIn).getTime();
-    countDownEndTime = new Date(month + " " + date + ", " + year + " " + endTimeIn).getTime();
-    countDownreadingTime = new Date(month + " " + date + ", " + year + " " + readingTimestartTimeIn).getTime();
+    var countDownStartTime = new Date(month + " " + date + ", " + year + " " + startTimeIn).getTime();
+    var countDownEndTime = new Date(month + " " + date + ", " + year + " " + endTimeIn).getTime();
+    var countDownreadingTime = new Date(month + " " + date + ", " + year + " " + readingTimestartTimeIn).getTime();
 
     // Create the container
     var examEvent = document.createElement("div");
-    examEvent.className = "exam-event";
 
     // Create all the elements
     var bodyLeft = document.createElement("div");
@@ -57,6 +41,7 @@ function create(exam) {
     var remainingTime = document.createElement("span");
 
     // Set all the classes
+    examEvent.className = "exam-event";
     bodyLeft.className = "body-left";
     heading.className = "heading";
     start.className = "start";
@@ -90,8 +75,6 @@ function create(exam) {
         readingstartTime.innerHTML = convertTo24Hours(readingTimestartTimeIn) + " (" + calcTime(countDownreadingTime, countDownStartTime) + ")";
         readingstart.appendChild(readingstartTime);
         bodyLeft.appendChild(readingstart);
-        console.log(readingTimestartTimeIn);
-        console.log(startTimeIn);
     }
 
     // Continue building the objects
@@ -154,7 +137,6 @@ function create(exam) {
         var distance = countDownEndTime - countDownStartTime;        
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        console.log("Sdads"+ hours);
         if (hours == 0) {
             return minutes + "m";
         } else {
@@ -173,7 +155,6 @@ function create(exam) {
 
 function placeholder() {
     if (!document.getElementById("examEventsContainer").hasChildNodes()) {
-        // document.getElementById("examEventsContainer").innerHTML = 'There are no exams added. <br>To add an exam, click Settings on the bottom right.';
         document.getElementById("examEventsContainer").innerHTML = 'There are no exams added. <br><br>To add an exam, click <i class="fas fa-gear"></i> on the bottom right.';
     }
 }

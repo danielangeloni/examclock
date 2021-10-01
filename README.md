@@ -8,7 +8,8 @@ Simple HTML application for schools to display a customised timer on projectors.
 2. Place the School crest/logo in the root directory, named "logo.jpg". 
 3. In the src/styles/variablestyles.css, the following edits can be made.
 
-``` --primary-color: {change to your school's primary color};
+``` 
+    --primary-color: {change to your school's primary color};
     --secondary-color: {change to your school's secondary color};
     --left-panel-color: {the color of the entire left panel};
     --exam-event-bgcolor: {the background color of the exam events};
