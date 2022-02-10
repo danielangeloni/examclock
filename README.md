@@ -1,5 +1,9 @@
-
-# ExamClock
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/84752451/153381339-5d5a3a2f-d86b-4d65-8513-d84b68cd7145.png" height="300">
+  
+  # ExamClock
+  
+</div>
 
 Simple HTML application for schools to display a customised timer on projectors.
 
